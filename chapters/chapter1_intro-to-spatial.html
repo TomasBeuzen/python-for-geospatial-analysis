@@ -1,0 +1,1968 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 1: Introduction to Spatial Data &#8212; Python for Geospatial Analysis</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://www.tomasbeuzen.com/python-for-geospatial-analysis/chapters/chapter1_intro-to-spatial.html" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chapter 2: Visualizing and modelling spatial data" href="chapter2_spatial-viz-and-modelling.html" />
+    <link rel="prev" title="Python for Geospatial Analysis" href="../README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python for Geospatial Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Python for Geospatial Analysis
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chapters
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 1: Introduction to Spatial Data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter2_spatial-viz-and-modelling.html">
+   Chapter 2: Visualizing and modelling spatial data
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <a href="https://www.tomasbeuzen.com/">Tomas Beuzen</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/chapters/chapter1_intro-to-spatial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TomasBeuzen/python-for-geospatial-analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TomasBeuzen/python-for-geospatial-analysis/main?urlpath=tree/chapters/chapter1_intro-to-spatial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-outline">
+   Chapter Outline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#chapter-learning-objectives">
+   Chapter Learning Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-spatial-data">
+   1. Introduction to spatial data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-vector-data">
+   2. Working with vector data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vector-data">
+     2.1. Vector data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geopandas">
+     2.2. Geopandas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-data">
+     2.3. Loading data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#making-data">
+     2.3. Making data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loading-from-open-street-map">
+     2.4. Loading from Open Street Map
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#basic-wrangling">
+     2.5. Basic wrangling
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#question-1-what-is-the-total-length-of-bike-lanes-in-stanley-park">
+       Question 1: What is the total length of bike lanes in Stanley Park?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#question-2-what-percentage-of-the-area-of-stanley-park-is-bike-lanes">
+       Question 2: What percentage of the area of Stanley Park is bike lanes?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#question-3-what-fsa-in-vancouver-has-the-most-bike-lanes-by-length">
+       Question 3: What FSA in Vancouver has the most bike lanes (by length)?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-raster-data">
+   3. Working with raster data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coordinate-reference-systems">
+   4. Coordinate reference systems
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/banner.png" /></p>
+<div class="section" id="chapter-1-introduction-to-spatial-data">
+<h1>Chapter 1: Introduction to Spatial Data<a class="headerlink" href="#chapter-1-introduction-to-spatial-data" title="Permalink to this headline">¶</a></h1>
+<p><strong>Tomas Beuzen, 2021</strong></p>
+<p><img alt="" src="../_images/map.png" /></p>
+<div class="section" id="chapter-outline">
+<h2>Chapter Outline<a class="headerlink" href="#chapter-outline" title="Permalink to this headline">¶</a></h2>
+<hr><div class="toc"><ul class="toc-item"><li><span><a href="#Chapter-Learning-Objectives" data-toc-modified-id="Chapter-Learning-Objectives-2">Chapter Learning Objectives</a></span></li><li><span><a href="#Imports" data-toc-modified-id="Imports-3">Imports</a></span></li><li><span><a href="#1.-Introduction-to-spatial-data" data-toc-modified-id="1.-Introduction-to-spatial-data-4">1. Introduction to spatial data</a></span></li><li><span><a href="#2.-Working-with-vector-data" data-toc-modified-id="2.-Working-with-vector-data-5">2. Working with vector data</a></span></li><li><span><a href="#3.-Working-with-raster-data" data-toc-modified-id="3.-Working-with-raster-data-6">3. Working with raster data</a></span></li><li><span><a href="#4.-Coordinate-reference-systems" data-toc-modified-id="4.-Coordinate-reference-systems-7">4. Coordinate reference systems</a></span></li></ul></div></div>
+<div class="section" id="chapter-learning-objectives">
+<h2>Chapter Learning Objectives<a class="headerlink" href="#chapter-learning-objectives" title="Permalink to this headline">¶</a></h2>
+<hr><ul class="simple">
+<li><p>Describe the difference between vector and raster data.</p></li>
+<li><p>Load vector data into <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>.</p></li>
+<li><p>Plot vector data using the <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> method <code class="docutils literal notranslate"><span class="pre">.plot()</span></code>.</p></li>
+<li><p>Wrangle vector data using <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> functions, methods, and attributes like <code class="docutils literal notranslate"><span class="pre">gpd.sjoin()</span></code>, <code class="docutils literal notranslate"><span class="pre">gpd.clip()</span></code>, <code class="docutils literal notranslate"><span class="pre">.length()</span></code>, <code class="docutils literal notranslate"><span class="pre">.buffer()</span></code>, etc.</p></li>
+<li><p>Import data from OpenStreetMap using <code class="docutils literal notranslate"><span class="pre">osmnx</span></code>.</p></li>
+<li><p>Read raster data with <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>.</p></li>
+<li><p>Describe at a high level why coordinate reference systems (CRS) are important and identify the CRS of a <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> object using the <code class="docutils literal notranslate"><span class="pre">.crs</span></code> attribute and reproject it to another CRS using the <code class="docutils literal notranslate"><span class="pre">.to_crs()</span></code> method.</p></li>
+</ul>
+</div>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<hr><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">osmnx</span> <span class="k">as</span> <span class="nn">ox</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;font.size&#39;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s1">&#39;axes.labelweight&#39;</span><span class="p">:</span> <span class="s1">&#39;bold&#39;</span><span class="p">,</span> <span class="s1">&#39;figure.figsize&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="s1">&#39;axes.edgecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;0.2&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="introduction-to-spatial-data">
+<h2>1. Introduction to spatial data<a class="headerlink" href="#introduction-to-spatial-data" title="Permalink to this headline">¶</a></h2>
+<hr><p>Spatial data (or “geospatial” data) are data with location information. When analyzing this data, we are interested in wrangling, plottling, modelling to better understand this spatial dependence.</p>
+<p>To get you excited about geospatial data, here’s a cool 3D map of UBC that we’ll build together next lecture:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%html</span>
+<span class="p">&lt;</span><span class="nt">iframe</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../_images/ubc-3d.html&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;80%&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;500&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">iframe</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe src="../_images/ubc-3d.html" width="80%" height="500"></iframe>
+</div></div>
+</div>
+<p>The first thing we need to know is that there are two main data formats used to represent spatial data:</p>
+<ol class="simple">
+<li><p>Vector format</p></li>
+<li><p>Raster format</p></li>
+</ol>
+</div>
+<div class="section" id="working-with-vector-data">
+<h2>2. Working with vector data<a class="headerlink" href="#working-with-vector-data" title="Permalink to this headline">¶</a></h2>
+<hr><div class="section" id="vector-data">
+<h3>2.1. Vector data<a class="headerlink" href="#vector-data" title="Permalink to this headline">¶</a></h3>
+<p>Vector data is an intuitive and common spatial data format and the one we’ll focus on most in this chapter. Vector data is simply a collection of discrete locations (<code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> values) called “vertices” that define one of three shapes:</p>
+<ol class="simple">
+<li><p><strong>Point</strong>: a single <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> point. Like the location of your house.</p></li>
+<li><p><strong>Line</strong>: two or more connected <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> points. Like a road.</p></li>
+<li><p><strong>Polygon</strong>: three or more <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> points connected and closed. Like a lake, or the border of a country.</p></li>
+</ol>
+<p><img alt="" src="../_images/vector.png" /></p>
+<blockquote>
+<div><p>Source: <a class="reference external" href="https://github.com/NEONScience/NEON-Data-Skills">National Ecological Observatory Network</a>.</p>
+</div></blockquote>
+<p>Vector data is most commonly stored in a “shapefile”. A shapefile is actually composed of 3 required files with the same prefix (here, <code class="docutils literal notranslate"><span class="pre">spatial-data</span></code>) but different extensions:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">spatial-data.shp</span></code>: main file that stores records of each shape geometries</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spatial-data.shx</span></code>: index of how the geometries in the main file relate to one-another</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spatial-data.dbf</span></code>: attributes of each record</p></li>
+</ol>
+<p>There are <a class="reference external" href="https://desktop.arcgis.com/en/arcmap/10.3/manage-data/shapefiles/shapefile-file-extensions.htm">other optional files</a> that may also be part of a shapefile but we won’t worry about them for now. Each shapefile can only contain one type of shape. For example, the descriptions for a house (point), a road (line), and a postal code area (polygon) would be stored in three separate shapefiles.</p>
+<blockquote>
+<div><p>There are other file-types for storing vector data too like <code class="docutils literal notranslate"><span class="pre">geojson</span></code>. These files can generally be imported into Python using the same methods and packages we use below.</p>
+</div></blockquote>
+</div>
+<div class="section" id="geopandas">
+<h3>2.2. Geopandas<a class="headerlink" href="#geopandas" title="Permalink to this headline">¶</a></h3>
+<p>The Python <a class="reference external" href="https://geopandas.org/getting_started/introduction.html">geopandas</a> library is the main library we’ll be using to work with vector data in Python. It’s built off <code class="docutils literal notranslate"><span class="pre">shapely</span></code> (which is <em>the</em> Python library for working with geometric objects in Python) and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Similar to <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> provides two key classes for spatial data manipulation:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GeoSeries</span></code>: just like a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> series but stores geometries like points, lines, polygons (we’ll see that shortly)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>: just like a <code class="docutils literal notranslate"><span class="pre">pandas</span></code> dataframe with one or more columns of regular series and one or more columns of <code class="docutils literal notranslate"><span class="pre">geoseries</span></code>.</p></li>
+</ol>
+<p>Along with those classes, we also have a variety of cool geopstial wrangling methods which we’ll explore in this chapter. For now, here’s a schematic of a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>:</p>
+<p><img alt="" src="../_images/geopandas.png" /></p>
+<blockquote>
+<div><p>Source: <a class="reference external" href="https://geopandas.org/getting_started/introduction.html">GeoPandas Documentation</a>.</p>
+</div></blockquote>
+<p>We usually import <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> using the alias <code class="docutils literal notranslate"><span class="pre">gpd</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-data">
+<h3>2.3. Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">¶</a></h3>
+<p>Let’s take a look at loading in a shapefile to a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> now. I downloaded a shapefile of Candian provinces from <a class="reference external" href="https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2016-eng.cfm">statcan</a> as a shapefile that looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>provinces
+├── provinces.dbf
+├── provinces.shp
+├── provinces.shx
+└── provinces.prj  # this contains projection information which I&#39;ll dicuss later
+</pre></div>
+</div>
+<p>We can read that shapefile using <code class="docutils literal notranslate"><span class="pre">gpd.read_file()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provinces</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;data-spatial/provinces&quot;</span><span class="p">)</span>  <span class="c1"># note that I point to the shapefile &quot;directory&quot; containg all the individual files</span>
+<span class="n">provinces</span> <span class="o">=</span> <span class="n">provinces</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>    <span class="c1"># I&#39;ll explain this later, I&#39;m converting to a different coordinate reference system</span>
+<span class="n">provinces</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PRUID</th>
+      <th>PRNAME</th>
+      <th>PRENAME</th>
+      <th>PRFNAME</th>
+      <th>PREABBR</th>
+      <th>PRFABBR</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>Newfoundland and Labrador / Terre-Neuve-et-Lab...</td>
+      <td>Newfoundland and Labrador</td>
+      <td>Terre-Neuve-et-Labrador</td>
+      <td>N.L.</td>
+      <td>T.-N.-L.</td>
+      <td>MULTIPOLYGON (((-57.40256 54.14965, -57.38429 ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11</td>
+      <td>Prince Edward Island / Île-du-Prince-Édouard</td>
+      <td>Prince Edward Island</td>
+      <td>Île-du-Prince-Édouard</td>
+      <td>P.E.I.</td>
+      <td>Î.-P.-É.</td>
+      <td>MULTIPOLYGON (((-61.98300 46.45775, -61.98136 ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12</td>
+      <td>Nova Scotia / Nouvelle-Écosse</td>
+      <td>Nova Scotia</td>
+      <td>Nouvelle-Écosse</td>
+      <td>N.S.</td>
+      <td>N.-É.</td>
+      <td>MULTIPOLYGON (((-61.90233 45.87878, -61.90057 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13</td>
+      <td>New Brunswick / Nouveau-Brunswick</td>
+      <td>New Brunswick</td>
+      <td>Nouveau-Brunswick</td>
+      <td>N.B.</td>
+      <td>N.-B.</td>
+      <td>MULTIPOLYGON (((-64.80155 47.80365, -64.80155 ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>24</td>
+      <td>Quebec / Québec</td>
+      <td>Quebec</td>
+      <td>Québec</td>
+      <td>Que.</td>
+      <td>Qc</td>
+      <td>MULTIPOLYGON (((-58.64703 51.20816, -58.63991 ...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>35</td>
+      <td>Ontario</td>
+      <td>Ontario</td>
+      <td>Ontario</td>
+      <td>Ont.</td>
+      <td>Ont.</td>
+      <td>MULTIPOLYGON (((-88.86612 56.84777, -88.86838 ...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>46</td>
+      <td>Manitoba</td>
+      <td>Manitoba</td>
+      <td>Manitoba</td>
+      <td>Man.</td>
+      <td>Man.</td>
+      <td>MULTIPOLYGON (((-94.82341 59.99352, -94.82398 ...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>47</td>
+      <td>Saskatchewan</td>
+      <td>Saskatchewan</td>
+      <td>Saskatchewan</td>
+      <td>Sask.</td>
+      <td>Sask.</td>
+      <td>POLYGON ((-109.63748 60.00005, -109.62498 60.0...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>48</td>
+      <td>Alberta</td>
+      <td>Alberta</td>
+      <td>Alberta</td>
+      <td>Alta.</td>
+      <td>Alb.</td>
+      <td>POLYGON ((-110.00001 59.95257, -110.00001 59.9...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>British Columbia</td>
+      <td>Colombie-Britannique</td>
+      <td>B.C.</td>
+      <td>C.-B.</td>
+      <td>MULTIPOLYGON (((-135.40000 60.00006, -135.3875...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>60</td>
+      <td>Yukon</td>
+      <td>Yukon</td>
+      <td>Yukon</td>
+      <td>Y.T.</td>
+      <td>Yn</td>
+      <td>MULTIPOLYGON (((-136.46988 68.86889, -136.4686...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>61</td>
+      <td>Northwest Territories / Territoires du Nord-Ouest</td>
+      <td>Northwest Territories</td>
+      <td>Territoires du Nord-Ouest</td>
+      <td>N.W.T.</td>
+      <td>T.N.-O.</td>
+      <td>MULTIPOLYGON (((-134.49321 69.70799, -134.4947...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>62</td>
+      <td>Nunavut</td>
+      <td>Nunavut</td>
+      <td>Nunavut</td>
+      <td>Nvt.</td>
+      <td>Nt</td>
+      <td>MULTIPOLYGON (((-94.65114 72.00040, -94.64164 ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">provinces</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geopandas.geodataframe.GeoDataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> is built off <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, our <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> inherits most of the same functionality as a regular dataframe. For example, let’s try the <code class="docutils literal notranslate"><span class="pre">.info()</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provinces</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+RangeIndex: 13 entries, 0 to 12
+Data columns (total 7 columns):
+ #   Column    Non-Null Count  Dtype   
+---  ------    --------------  -----   
+ 0   PRUID     13 non-null     object  
+ 1   PRNAME    13 non-null     object  
+ 2   PRENAME   13 non-null     object  
+ 3   PRFNAME   13 non-null     object  
+ 4   PREABBR   13 non-null     object  
+ 5   PRFABBR   13 non-null     object  
+ 6   geometry  13 non-null     geometry
+dtypes: geometry(1), object(6)
+memory usage: 856.0+ bytes
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note we have 5 columns of dtype “object” which typically means “strings” in <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and we have our one “geometry” column which contains vector data - polygons in this case. Well we have <code class="docutils literal notranslate"><span class="pre">MULTIPOLYGON</span></code>s which just means multiple polygons together, for example British Columbia has a lot of little islands, so to make a boundary of it, we need multiple polygons.</p>
+<p><code class="docutils literal notranslate"><span class="pre">geopandas</span></code> has built-in plotting functionality (just like <code class="docutils literal notranslate"><span class="pre">pandas</span></code>) which is useful for making quick plots to visualize your data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provinces</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Canada Provinces and Territories&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_29_0.png" src="../_images/chapter1_intro-to-spatial_29_0.png" />
+</div>
+</div>
+<p>That looks like Canada to me! We can also index our <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> just like a regular dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provinces</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PRUID</th>
+      <th>PRNAME</th>
+      <th>PRENAME</th>
+      <th>PRFNAME</th>
+      <th>PREABBR</th>
+      <th>PRFABBR</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>Newfoundland and Labrador / Terre-Neuve-et-Lab...</td>
+      <td>Newfoundland and Labrador</td>
+      <td>Terre-Neuve-et-Labrador</td>
+      <td>N.L.</td>
+      <td>T.-N.-L.</td>
+      <td>MULTIPOLYGON (((-57.40256 54.14965, -57.38429 ...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="n">provinces</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;PRENAME&quot;</span><span class="p">]</span>
+<span class="n">provinces</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_32_0.png" src="../_images/chapter1_intro-to-spatial_32_0.png" />
+</div>
+</div>
+<p>Let’s filter our dataframe for only British Columbia using the helpful <code class="docutils literal notranslate"><span class="pre">pandas</span></code> method <code class="docutils literal notranslate"><span class="pre">.query()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">province</span> <span class="o">=</span> <span class="s2">&quot;British Columbia&quot;</span>
+<span class="n">bc</span> <span class="o">=</span> <span class="n">provinces</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;PRENAME == @province&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">bc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PRUID</th>
+      <th>PRNAME</th>
+      <th>PRENAME</th>
+      <th>PRFNAME</th>
+      <th>PREABBR</th>
+      <th>PRFABBR</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>British Columbia</td>
+      <td>Colombie-Britannique</td>
+      <td>B.C.</td>
+      <td>C.-B.</td>
+      <td>MULTIPOLYGON (((-135.40000 60.00006, -135.3875...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Now, let’s do some simple manipulation to clean up our dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bc</span> <span class="o">=</span> <span class="p">(</span><span class="n">bc</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;PRENAME&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>
+        <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;PRNAME&quot;</span><span class="p">:</span> <span class="s2">&quot;Province&quot;</span><span class="p">})</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+      <span class="p">)</span>
+<span class="n">bc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PRENAME</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>British Columbia</td>
+      <td>MULTIPOLYGON (((-135.40000 60.00006, -135.3875...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;British Columbia&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_37_0.png" src="../_images/chapter1_intro-to-spatial_37_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="making-data">
+<h3>2.3. Making data<a class="headerlink" href="#making-data" title="Permalink to this headline">¶</a></h3>
+<p>Typically, you’ll be loading data from a file like we did above (or using an API as we’ll do later in this chapter). But we can also create our own vector data. Let’s create some “points” for BC’s biggest cities in a regular dataframe:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span><span class="s2">&quot;City&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Vancouver&quot;</span><span class="p">,</span> <span class="s2">&quot;Victoria&quot;</span><span class="p">,</span> <span class="s2">&quot;Kelowna&quot;</span><span class="p">],</span>
+     <span class="s2">&quot;Population&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2_264_823</span><span class="p">,</span> <span class="mi">335_696</span><span class="p">,</span> <span class="mi">151_957</span><span class="p">],</span>
+     <span class="s2">&quot;Latitude&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">49.260833</span><span class="p">,</span> <span class="mf">48.428333</span><span class="p">,</span> <span class="mf">49.888056</span><span class="p">],</span>
+     <span class="s2">&quot;Longitude&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">123.113889</span><span class="p">,</span> <span class="o">-</span><span class="mf">123.364722</span><span class="p">,</span> <span class="o">-</span><span class="mf">119.495556</span><span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>Population</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Vancouver</td>
+      <td>2264823</td>
+      <td>49.260833</td>
+      <td>-123.113889</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Victoria</td>
+      <td>335696</td>
+      <td>48.428333</td>
+      <td>-123.364722</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Kelowna</td>
+      <td>151957</td>
+      <td>49.888056</td>
+      <td>-119.495556</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can coerce that data into a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> using <code class="docutils literal notranslate"><span class="pre">gpd.GeoDataFrame()</span></code> and by using the function <code class="docutils literal notranslate"><span class="pre">gpd.points_from_xy()</span></code> to change our “Latitude” and “Longitude” columns to geometries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">cities</span><span class="p">,</span>
+                          <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span>  <span class="c1"># I&#39;ll talk about this later</span>
+                          <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">cities</span><span class="p">[</span><span class="s2">&quot;Longitude&quot;</span><span class="p">],</span> <span class="n">cities</span><span class="p">[</span><span class="s2">&quot;Latitude&quot;</span><span class="p">]))</span>
+<span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>Population</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Vancouver</td>
+      <td>2264823</td>
+      <td>49.260833</td>
+      <td>-123.113889</td>
+      <td>POINT (-123.11389 49.26083)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Victoria</td>
+      <td>335696</td>
+      <td>48.428333</td>
+      <td>-123.364722</td>
+      <td>POINT (-123.36472 48.42833)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Kelowna</td>
+      <td>151957</td>
+      <td>49.888056</td>
+      <td>-119.495556</td>
+      <td>POINT (-119.49556 49.88806)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s plot those points on our map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">bc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">cities</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Big cities in B.C.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_44_0.png" src="../_images/chapter1_intro-to-spatial_44_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="loading-from-open-street-map">
+<h3>2.4. Loading from Open Street Map<a class="headerlink" href="#loading-from-open-street-map" title="Permalink to this headline">¶</a></h3>
+<p>So we can read vector data from a file and we can create our own, but let’s see what real power feels like!</p>
+<p><img alt="" src="../_images/real-power.gif" /></p>
+<p>Often it will be helpful to obtain data from an online source using an API. The most relevant “online source” here is <a class="reference external" href="https://www.openstreetmap.org/">OpenStreetMap (OSM)</a>, which is like the Wikipedia of geospatial data (think world map, road networks, bike networks, buidling heights, sandy coastlines, you name it). There are plenty of Python APIs for getting data from OSM but by far the best I’ve come across is <a class="reference external" href="https://github.com/gboeing/osmnx/tree/master">osmnx</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">conda install -c conda-forge osmnx</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">osmnx</span></code> provides an easy-to-use API to query OSM data. I usually import it with the alias <code class="docutils literal notranslate"><span class="pre">ox</span></code>. Let’s get a polygon of Vancouver now using the function <code class="docutils literal notranslate"><span class="pre">ox.geocode_to_gdf()</span></code>:</p>
+<blockquote>
+<div><p>By default <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> caches responses locally in a folder <code class="docutils literal notranslate"><span class="pre">cache</span></code> so that you can quickly access data again without needing to call the API. You can turn this behaviour off if you wish.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">osmnx</span> <span class="k">as</span> <span class="nn">ox</span>
+
+<span class="n">vancouver</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="s2">&quot;Vancouver, Canada&quot;</span><span class="p">)</span>
+<span class="n">vancouver</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vancouver&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_47_0.png" src="../_images/chapter1_intro-to-spatial_47_0.png" />
+</div>
+</div>
+<p>It’s certainly Vancouver, but it looks a bit blocky. It might be a bit low resolution, or someone just decided this was the best way to encapsulate “Vancouver” on OSM. Either way, let’s use this polygon to “clip” a section of our higher-resolution provinces data which we downloaded earlier (and which is the official shapefile downloaded from <a class="reference external" href="https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2016-eng.cfm">statcan</a>).</p>
+<p>This is the first geometric wrangling operation we’ll see. I’ll show some more later, but think of “clipping” as passing a top layer of cookie dough (the map above), over a bottom layer cookiecutter (our high-resolution provinces data) to get a shape out:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">van_bc</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">bc</span><span class="p">,</span> <span class="n">vancouver</span><span class="p">)</span>
+<span class="n">van_bc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vancouver&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_49_0.png" src="../_images/chapter1_intro-to-spatial_49_0.png" />
+</div>
+</div>
+<p>That looks better! Now we can clearly see Stanley Park at the top of the plot! Speaking of which, let’s get a polygon of Stanley Park:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stanley_park</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">geocode_to_gdf</span><span class="p">(</span><span class="s2">&quot;Stanley Park, Vancouver&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And plot it on our map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">van_bc</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">stanley_park</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tomato&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Stanley Park&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_53_0.png" src="../_images/chapter1_intro-to-spatial_53_0.png" />
+</div>
+</div>
+<p>Okay let’s do one last cool thing! Let’s use <code class="docutils literal notranslate"><span class="pre">osmnx</span></code> to get the bicycle network within Stanley Park! We can get networks like road, rail, bike, etc., using the function <code class="docutils literal notranslate"><span class="pre">ox.graph_from_place()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bike_network</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Stanley Park, Vancouver&quot;</span><span class="p">,</span>
+                                   <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
+<span class="n">bike_network</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;networkx.classes.multidigraph.MultiDiGraph at 0x13863b210&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see, this returns a different object, a <a class="reference external" href="https://networkx.org/">networkx</a> <code class="docutils literal notranslate"><span class="pre">MultiDiGraph</span></code> which is a structure for holding network/graph-like objects such as road networks. We’re not interested in graph operations, we are just interested in geometries, so we’ll convert this to a <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> using the function <code class="docutils literal notranslate"><span class="pre">ox.graph_to_gdfs()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bike_network</span> <span class="o">=</span> <span class="p">(</span><span class="n">ox</span><span class="o">.</span><span class="n">graph_to_gdfs</span><span class="p">(</span><span class="n">bike_network</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                  <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                  <span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;bridge&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>
+               <span class="p">)</span>
+<span class="n">bike_network</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>length</th>
+      <th>bridge</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Stanley Park Causeway</td>
+      <td>165.216</td>
+      <td>yes</td>
+      <td>LINESTRING (-123.13719 49.29767, -123.13718 49...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Stanley Park Causeway</td>
+      <td>62.901</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.13719 49.29767, -123.13741 49...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>8.066</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.13211 49.29737, -123.13212 49...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Stanley Park Drive</td>
+      <td>80.558</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.13211 49.29737, -123.13204 49...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>91.001</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.13211 49.29737, -123.13212 49...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>361</th>
+      <td>NaN</td>
+      <td>12.670</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.12854 49.29693, -123.12863 49...</td>
+    </tr>
+    <tr>
+      <th>362</th>
+      <td>NaN</td>
+      <td>44.325</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.12854 49.29693, -123.12869 49...</td>
+    </tr>
+    <tr>
+      <th>363</th>
+      <td>Stanley Park Drive</td>
+      <td>3.339</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.14577 49.29042, -123.14572 49...</td>
+    </tr>
+    <tr>
+      <th>364</th>
+      <td>Park Lane</td>
+      <td>29.437</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.14668 49.29078, -123.14658 49...</td>
+    </tr>
+    <tr>
+      <th>365</th>
+      <td>Stanley Park Drive</td>
+      <td>48.880</td>
+      <td>NaN</td>
+      <td>LINESTRING (-123.14668 49.29078, -123.14670 49...</td>
+    </tr>
+  </tbody>
+</table>
+<p>366 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>Now let’s plot this bike network on Stanley Park!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">stanley_park</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">bike_network</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tomato&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Stanley Park Cycling&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_59_0.png" src="../_images/chapter1_intro-to-spatial_59_0.png" />
+</div>
+</div>
+<p>Amazing stuff!</p>
+</div>
+<div class="section" id="basic-wrangling">
+<h3>2.5. Basic wrangling<a class="headerlink" href="#basic-wrangling" title="Permalink to this headline">¶</a></h3>
+<p>So we did some cool mapping and data manipulation above, but what’s it all for? Why would you want to do any of this? Well we can now start calculating and manipulating this spatial data to answer questions. Let’s answer some now.</p>
+<div class="section" id="question-1-what-is-the-total-length-of-bike-lanes-in-stanley-park">
+<h4>Question 1: What is the total length of bike lanes in Stanley Park?<a class="headerlink" href="#question-1-what-is-the-total-length-of-bike-lanes-in-stanley-park" title="Permalink to this headline">¶</a></h4>
+<p>Well, our <code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code> actually already has this information, it came for free from our original <code class="docutils literal notranslate"><span class="pre">ox.graph_from_place()</span></code> function and is in the “length” column:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_length</span> <span class="o">=</span> <span class="n">bike_network</span><span class="p">[</span><span class="s2">&quot;length&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>  <span class="c1"># total length in m</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total bike lane length: </span><span class="si">{</span><span class="n">total_length</span> <span class="o">/</span> <span class="mi">1000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">km&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total bike lane length: 58km
+</pre></div>
+</div>
+</div>
+</div>
+<p>But even if we didn’t have this column, we could still calculate lengths based on our line geometries and the <code class="docutils literal notranslate"><span class="pre">.length</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bike_network</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      LINESTRING (-123.13719 49.29767, -123.13718 49...
+1      LINESTRING (-123.13719 49.29767, -123.13741 49...
+2      LINESTRING (-123.13211 49.29737, -123.13212 49...
+3      LINESTRING (-123.13211 49.29737, -123.13204 49...
+4      LINESTRING (-123.13211 49.29737, -123.13212 49...
+                             ...                        
+361    LINESTRING (-123.12854 49.29693, -123.12863 49...
+362    LINESTRING (-123.12854 49.29693, -123.12869 49...
+363    LINESTRING (-123.14577 49.29042, -123.14572 49...
+364    LINESTRING (-123.14668 49.29078, -123.14658 49...
+365    LINESTRING (-123.14668 49.29078, -123.14670 49...
+Name: geometry, Length: 366, dtype: geometry
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bike_network</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">length</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/mds574/lib/python3.7/site-packages/ipykernel_launcher.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;length&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
+
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0.001653
+1      0.000751
+2      0.000073
+3      0.001029
+4      0.001151
+         ...   
+361    0.000133
+362    0.000477
+363    0.000044
+364    0.000393
+365    0.000628
+Length: 366, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>What’s that warning? More on that a bit later, but it’s telling us that our coordinate system has units of degrees - not linear units like meters which would be better for calculating distances. I’m going to convert my geometries to a coordinate systems based on linear units (meters). I’ll specify the projection “EPSG:3347” (Lambert projection) which is the one used by <a class="reference external" href="https://www150.statcan.gc.ca/n1/pub/92-195-x/2011001/other-autre/mapproj-projcarte/m-c-eng.htm">statcan</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bike_network</span> <span class="o">=</span> <span class="n">bike_network</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:3347&quot;</span><span class="p">)</span>
+<span class="n">bike_network</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">length</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      165.142206
+1       62.941716
+2        8.058879
+3       80.655282
+4       91.110800
+          ...    
+361     12.667118
+362     44.326065
+363      3.343832
+364     29.484229
+365     48.942512
+Length: 366, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_length</span> <span class="o">=</span> <span class="n">bike_network</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">length</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total bike lane length: </span><span class="si">{</span><span class="n">total_length</span> <span class="o">/</span> <span class="mi">1000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">km&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total bike lane length: 58km
+</pre></div>
+</div>
+</div>
+</div>
+<p>The same as we got before! Nice!</p>
+</div>
+<div class="section" id="question-2-what-percentage-of-the-area-of-stanley-park-is-bike-lanes">
+<h4>Question 2: What percentage of the area of Stanley Park is bike lanes?<a class="headerlink" href="#question-2-what-percentage-of-the-area-of-stanley-park-is-bike-lanes" title="Permalink to this headline">¶</a></h4>
+<p>This is a tougher one! First let’s calculate the “area” of our bike lanes. We need to make an assumption about the width of our lanes. This <a class="reference external" href="https://vancouver.ca/files/cov/protected-bike-lane-catalogue-part-2-two-way-lanes-and-pathways.pdf">City of Vancouver planning document</a> suggests the bike lanes around Stanley Park are about 3m so let’s go with that.</p>
+<p>I’m going to use the <code class="docutils literal notranslate"><span class="pre">.buffer()</span></code> method to turn the lines of my bike network into polygons with a specified width (3m in our cases). Because my <code class="docutils literal notranslate"><span class="pre">bike_network</span></code> data is in linear meters units now (remember, I changed the projection), I’m also going to convert our Stanley Park map to that projection (“EPSG:3347”):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stanley_park</span> <span class="o">=</span> <span class="n">stanley_park</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:3347&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s “buffer” our bike lanes to be me 3m wide polygons. “Buffer” just mean to add some area around the object:</p>
+<p><img alt="" src="../_images/buffer.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">width</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># desired with of bike lanes in meters</span>
+<span class="n">bike_network</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bike_network</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">distance</span><span class="o">=</span><span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># note that we provide distance as a radius (half the desired width)</span>
+<span class="n">bike_network</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>length</th>
+      <th>bridge</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Stanley Park Causeway</td>
+      <td>165.216</td>
+      <td>yes</td>
+      <td>POLYGON ((4018562.106 2009363.283, 4018563.601...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Stanley Park Causeway</td>
+      <td>62.901</td>
+      <td>NaN</td>
+      <td>POLYGON ((4018554.879 2009389.952, 4018550.455...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>8.066</td>
+      <td>NaN</td>
+      <td>POLYGON ((4018874.157 2009173.346, 4018874.220...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Stanley Park Drive</td>
+      <td>80.558</td>
+      <td>NaN</td>
+      <td>POLYGON ((4018877.663 2009164.604, 4018883.832...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>91.001</td>
+      <td>NaN</td>
+      <td>POLYGON ((4018870.301 2009159.558, 4018867.565...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>361</th>
+      <td>NaN</td>
+      <td>12.670</td>
+      <td>NaN</td>
+      <td>POLYGON ((4019075.828 2009012.416, 4019075.828...</td>
+    </tr>
+    <tr>
+      <th>362</th>
+      <td>NaN</td>
+      <td>44.325</td>
+      <td>NaN</td>
+      <td>POLYGON ((4019065.791 2008999.105, 4019063.426...</td>
+    </tr>
+    <tr>
+      <th>363</th>
+      <td>Stanley Park Drive</td>
+      <td>3.339</td>
+      <td>NaN</td>
+      <td>POLYGON ((4017636.250 2008950.892, 4017636.334...</td>
+    </tr>
+    <tr>
+      <th>364</th>
+      <td>Park Lane</td>
+      <td>29.437</td>
+      <td>NaN</td>
+      <td>POLYGON ((4017601.662 2009019.800, 4017601.738...</td>
+    </tr>
+    <tr>
+      <th>365</th>
+      <td>Stanley Park Drive</td>
+      <td>48.880</td>
+      <td>NaN</td>
+      <td>POLYGON ((4017591.429 2009020.028, 4017591.421...</td>
+    </tr>
+  </tbody>
+</table>
+<p>366 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">stanley_park</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">bike_network</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;tomato&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Stanley Park Cycling&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_78_0.png" src="../_images/chapter1_intro-to-spatial_78_0.png" />
+</div>
+</div>
+<p>Now we can calculate the area using the <code class="docutils literal notranslate"><span class="pre">.area</span></code> attribute. Note that <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> is smart enough to know that you probably want to calculate these spatial attributes on the <code class="docutils literal notranslate"><span class="pre">geometry</span></code> column, so you don’t actually have to index that particular column (if you have multiple geometry columns, then you can choose which one is “active” and acted on by default using the <code class="docutils literal notranslate"><span class="pre">.set_geometry()</span></code> method):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bike_network_area</span> <span class="o">=</span> <span class="n">bike_network</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bike path area: </span><span class="si">{</span><span class="n">bike_network_area</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> m2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bike path area: 177968 m2
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you think about it, that should be roughly similar to if we just multiplied our <code class="docutils literal notranslate"><span class="pre">total_length</span></code> from “Question 1” by 3 (the width of the bike paths):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_length</span> <span class="o">*</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>175429.60863417128
+</pre></div>
+</div>
+</div>
+</div>
+<p>Well that’s a nice sanity check! Now we just need the area of Stanley Park and we can calculate our ratio:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stanley_park_area</span> <span class="o">=</span> <span class="n">stanley_park</span><span class="o">.</span><span class="n">area</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">bike_network_area</span> <span class="o">/</span> <span class="n">stanley_park_area</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">% of Stanley Park is bike paths.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.45% of Stanley Park is bike paths.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="question-3-what-fsa-in-vancouver-has-the-most-bike-lanes-by-length">
+<h4>Question 3: What FSA in Vancouver has the most bike lanes (by length)?<a class="headerlink" href="#question-3-what-fsa-in-vancouver-has-the-most-bike-lanes-by-length" title="Permalink to this headline">¶</a></h4>
+<p>An FSA is a “forward sortation area”, basically a group of postcodes that all start with the same first 3 letters. So to answer this question, we need two things:</p>
+<ol class="simple">
+<li><p>FSA polygons (available on <a class="reference external" href="https://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2016-eng.cfm">statcan here</a>)</p></li>
+<li><p>The bike network for all of Vancouver</p></li>
+</ol>
+<p>I have already downloaded the above shapefile of FSAs for all of Canada. We’ll load it in and then clip it using our Vancouver polygon:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fsa</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s2">&quot;data-spatial/fsa&quot;</span><span class="p">)</span>
+<span class="n">fsa</span> <span class="o">=</span> <span class="n">fsa</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+<span class="n">van_fsa</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">fsa</span><span class="p">,</span> <span class="n">vancouver</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s get the Vancouver bike network using <code class="docutils literal notranslate"><span class="pre">osmnx</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">van_bike_network</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">graph_from_place</span><span class="p">(</span><span class="s2">&quot;Vancouver&quot;</span><span class="p">,</span> <span class="n">network_type</span><span class="o">=</span><span class="s2">&quot;bike&quot;</span><span class="p">)</span>
+<span class="n">van_bike_network</span> <span class="o">=</span> <span class="p">(</span><span class="n">ox</span><span class="o">.</span><span class="n">graph_to_gdfs</span><span class="p">(</span><span class="n">van_bike_network</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                      <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                      <span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;bridge&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]]</span>
+                   <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s take a look at our data so far:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">van_fsa</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">van_bike_network</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;tomato&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vancouver Cycling&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_91_0.png" src="../_images/chapter1_intro-to-spatial_91_0.png" />
+</div>
+</div>
+<p>Okay so how do we work out the total length of bike lanes in each FSA? We need to do a spatial join, which joins two geometries based on their locations. In the plot below, we’ll join the column of the dark dot to the column(s) of the grey polygon because the dark dot is contained within the spatial region of the polygon.</p>
+<p><img alt="" src="../_images/spatial-join.png" /></p>
+<blockquote>
+<div><p>Source: <a class="reference external" href="https://gisgeography.com/spatial-join/">GISGeography</a>.</p>
+</div></blockquote>
+<p>We can do a spatial join with <code class="docutils literal notranslate"><span class="pre">gpd.sjoin()</span></code> (it’s just like joining in base <code class="docutils literal notranslate"><span class="pre">pandas</span></code>). There are different options for the argument <code class="docutils literal notranslate"><span class="pre">op</span></code> which allow you how to control the join. Below I’ll specify “contain”, meaning I only want to join when a bike lane is fully contained within an FSA (you can read more about <code class="docutils literal notranslate"><span class="pre">op</span></code> in the <a class="reference external" href="https://geopandas.org/docs/user_guide/mergingdata.html#sjoin-arguments">documentation</a>);</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">joined_data</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">van_fsa</span><span class="p">,</span> <span class="n">van_bike_network</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">op</span><span class="o">=</span><span class="s2">&quot;contains&quot;</span><span class="p">)</span>
+<span class="n">joined_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CFSAUID</th>
+      <th>PRUID</th>
+      <th>PRNAME</th>
+      <th>geometry</th>
+      <th>index_right</th>
+      <th>name</th>
+      <th>length</th>
+      <th>bridge</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1386</th>
+      <td>V5Z</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.11483 49.26939, -123.11482 49.2...</td>
+      <td>14683</td>
+      <td>West 49th Avenue</td>
+      <td>113.479</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>V5Z</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.11483 49.26939, -123.11482 49.2...</td>
+      <td>11256</td>
+      <td>West 49th Avenue</td>
+      <td>113.479</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>V5Z</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.11483 49.26939, -123.11482 49.2...</td>
+      <td>11211</td>
+      <td>West 49th Avenue</td>
+      <td>115.184</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>V5Z</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.11483 49.26939, -123.11482 49.2...</td>
+      <td>11257</td>
+      <td>West 49th Avenue</td>
+      <td>115.184</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>V5Z</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.11483 49.26939, -123.11482 49.2...</td>
+      <td>11214</td>
+      <td>Fremlin Street</td>
+      <td>51.729</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1615</th>
+      <td>V6R</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.21376 49.27669, -123.21346 49.2...</td>
+      <td>48960</td>
+      <td>NaN</td>
+      <td>221.171</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1615</th>
+      <td>V6R</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.21376 49.27669, -123.21346 49.2...</td>
+      <td>48957</td>
+      <td>NaN</td>
+      <td>105.284</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1615</th>
+      <td>V6R</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.21376 49.27669, -123.21346 49.2...</td>
+      <td>54169</td>
+      <td>NaN</td>
+      <td>105.284</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1615</th>
+      <td>V6R</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.21376 49.27669, -123.21346 49.2...</td>
+      <td>40455</td>
+      <td>NaN</td>
+      <td>292.839</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1615</th>
+      <td>V6R</td>
+      <td>59</td>
+      <td>British Columbia / Colombie-Britannique</td>
+      <td>POLYGON ((-123.21376 49.27669, -123.21346 49.2...</td>
+      <td>1231</td>
+      <td>NaN</td>
+      <td>292.839</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>57907 rows × 8 columns</p>
+</div></div></div>
+</div>
+<p>Now we just need to <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">joined_data</span><span class="p">[[</span><span class="s2">&quot;CFSAUID&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;CFSAUID&quot;</span><span class="p">)</span>
+                                   <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+                                   <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                                   <span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>length</th>
+    </tr>
+    <tr>
+      <th>CFSAUID</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>V6P</th>
+      <td>348095.253</td>
+    </tr>
+    <tr>
+      <th>V5R</th>
+      <td>281367.666</td>
+    </tr>
+    <tr>
+      <th>V5X</th>
+      <td>264815.800</td>
+    </tr>
+    <tr>
+      <th>V5S</th>
+      <td>259047.140</td>
+    </tr>
+    <tr>
+      <th>V5K</th>
+      <td>245773.116</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We see that “V6P” has the largest length of bike lanes, what FSA is that?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">van_fsa</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">)</span>
+<span class="n">van_fsa</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;CFSAUID == &#39;V6P&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;tomato&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;FSA with most bike lane length&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_97_0.png" src="../_images/chapter1_intro-to-spatial_97_0.png" />
+</div>
+</div>
+<p>Looks good to me!</p>
+</div>
+</div>
+</div>
+<div class="section" id="working-with-raster-data">
+<h2>3. Working with raster data<a class="headerlink" href="#working-with-raster-data" title="Permalink to this headline">¶</a></h2>
+<p>Unlike vector data (geometric objects: like points, lines, polygons), raster data is a matrix of values of “pixels” (also called “cells”). Each cell represents a small area and contains a value representing some information:</p>
+<p><img alt="" src="../_images/raster.png" /></p>
+<blockquote>
+<div><p>Source: <a class="reference external" href="https://github.com/NEONScience/NEON-Data-Skills">National Ecological Observatory Network</a>.</p>
+</div></blockquote>
+<p>Raster data is like digital image data you look at on your computer, except that now, each pixel represents a spatial region. The “resolution” of a raster is the area that each pixel represents. A 1 meter resolution raster means that each pixel represents a 1 m x 1 m area on the ground. However, when we say “high resolution” we often mean, a low value of resolution for each pixel, i.e., 1 meter resolution is higher than 8 meter resolution as exmplified by the image below:</p>
+<p><img alt="" src="../_images/raster-resolution.png" /></p>
+<blockquote>
+<div><p>Source: <a class="reference external" href="https://github.com/NEONScience/NEON-Data-Skills">National Ecological Observatory Network</a>.</p>
+</div></blockquote>
+<p>Like vector data, there are different file formats for storing raster data. The most common is GeoTIFF (<code class="docutils literal notranslate"><span class="pre">.tif</span></code>), which is essentially an image file with georeferencing information embedded within it. Raster data is used for a variety of problems, common examples include satellite imagery and digital elevation models. Those things are gettings a bit outside the scope of this course but let’s briefly look at some raster data below. The core packge for working with raster data in Python is <a class="reference external" href="https://rasterio.readthedocs.io/en/latest/index.html">rasterio</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">rasterio</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>I have a satellite image raster file of part of UBC in my data folder which I downloaded from the <a class="reference external" href="https://abacus.library.ubc.ca/dataset.xhtml?persistentId=hdl:11272.1/AB2/6PFOWL">Abacus Data Network</a>. Let’s load it in with <code class="docutils literal notranslate"><span class="pre">rasterio</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;tif/ubc-481E_5456N/481E_5456N.tif&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can start to investigate things like the width and height (in pixels/cells) of the raster:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Width: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">width</span><span class="si">}</span><span class="s2"> pixels&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">height</span><span class="si">}</span><span class="s2"> pixels&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Width: 10000 pixels
+Height: 10000 pixels
+</pre></div>
+</div>
+</div>
+</div>
+<p>Raster data often have “bands” representing different information (for example, a colour image usually has red, green, and blue bands). This particular satellite image has 4 bands (in order: red, blue, green, infrared):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could import the first band as a numpy array using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">band1</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">band1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 70,  67,  52, ...,  88,  86,  85],
+       [ 64,  60,  53, ...,  89,  88,  92],
+       [ 67,  63,  62, ...,  93, 104, 107],
+       ...,
+       [ 58,  56,  54, ...,  52,  28,  20],
+       [ 55,  56,  55, ...,  55,  30,  25],
+       [ 54,  57,  59, ...,  30,  19,  29]], dtype=uint8)
+</pre></div>
+</div>
+</div>
+</div>
+<p>But before importing anymore data, it’s helpful to just see the image. First I’m going to “downsample” my raster (reduce the resolution by increasing the cell size) to reduce the size of the data and speed things up a bit:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rescale_factor</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">scaled_data</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">out_shape</span><span class="o">=</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">count</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">rescale_factor</span><span class="p">),</span>
+                                      <span class="nb">int</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">rescale_factor</span><span class="p">))</span>
+                          <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scaled shape: </span><span class="si">{</span><span class="n">scaled_data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scaled shape: (4, 5000, 5000)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As our data is just numpy array(s), we can plot it with the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> function <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">cmaps</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Reds&quot;</span><span class="p">,</span> <span class="s2">&quot;Blues&quot;</span><span class="p">,</span> <span class="s2">&quot;Greens&quot;</span><span class="p">,</span> <span class="s2">&quot;Purples&quot;</span><span class="p">]</span>
+<span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Red Band&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue Band&quot;</span><span class="p">,</span> <span class="s2">&quot;Green Band&quot;</span><span class="p">,</span> <span class="s2">&quot;Infrared Band&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">band</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">[</span><span class="n">band</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmaps</span><span class="p">[</span><span class="n">band</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">bands</span><span class="p">[</span><span class="n">band</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">band</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_113_0.png" src="../_images/chapter1_intro-to-spatial_113_0.png" />
+</div>
+</div>
+<p>Of course, it looks more realistic using all channels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;All bands&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_115_0.png" src="../_images/chapter1_intro-to-spatial_115_0.png" />
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">rasterio</span></code> has lots of advanced fucntionality for manipulating and plotting raster data if you find the need to. <a class="reference external" href="https://rasterio.readthedocs.io/en/latest/index.html">Check out the documentation</a>.</p>
+</div>
+<div class="section" id="coordinate-reference-systems">
+<h2>4. Coordinate reference systems<a class="headerlink" href="#coordinate-reference-systems" title="Permalink to this headline">¶</a></h2>
+<hr><p>Generally speaking a coordinate reference system is how we project the 3D surface of the Earth onto a 2D shape for easy viewing</p>
+<p><img alt="" src="../_images/projection.gif" /></p>
+<p>There are <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_map_projections">many different projections</a> and they are typically identified by an <a class="reference external" href="https://epsg.io/">EPSG code</a>. No projection is perfect (it’s impossible to perfectly flatten a 3d sphere) and each comprises on minimzing the distortion of shapes, distances, and areas of the Earth. At a basic level, all you need to know is that some projections are:</p>
+<ul class="simple">
+<li><p>in angular units (degrees of latitude and longitude) and are good for locating places on Earth, for making global maps, and minimizing shape distortion. The most common is WGS 84 (“<a class="reference external" href="https://epsg.io/4326">EPSG:4326</a>”)</p></li>
+<li><p>in linear units (e.g., meters) and are good for measuring distances. Most common is UTM which splits the Earth into different linear regions, the code for the region encompassing British Columbia is “<a class="reference external" href="https://epsg.io/32610">EPSG:32610</a>”</p></li>
+</ul>
+<p>But many countries/regions use other specific projections which minimize distortion of that specific area. For example Statistics Canada uses the Lambert projection for Canada (“<a class="reference external" href="https://epsg.io/3347">EPSG:3347</a>”). Much of the time, you will know or be told which projection to use based on your specific data/project.</p>
+<p>Let’s take a quick look at some different projections for Canada now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data from geopandas</span>
+<span class="n">canada</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;naturalearth_lowres&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;name == &#39;Canada&#39;&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">crs_list</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;WGS 84&quot;</span><span class="p">,</span> <span class="s2">&quot;EPSG:4326&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Lambert&quot;</span><span class="p">,</span> <span class="s2">&quot;EPSG:3347&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;UTM 10N&quot;</span><span class="p">,</span> <span class="s2">&quot;EPSG:32610&quot;</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">epsg</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">crs_list</span><span class="p">):</span>
+    <span class="n">canada</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter1_intro-to-spatial_120_0.png" src="../_images/chapter1_intro-to-spatial_120_0.png" />
+</div>
+</div>
+<p><img alt="" src="../_images/bye.png" /></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-mds574-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-mds574-py",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-mds574-py'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">Python for Geospatial Analysis</a>
+    <a class='right-next' id="next-link" href="chapter2_spatial-viz-and-modelling.html" title="next page">Chapter 2: Visualizing and modelling spatial data</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tomas Beuzen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+    
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+
+    
+  </body>
+</html>
