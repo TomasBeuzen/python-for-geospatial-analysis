@@ -1,0 +1,27 @@
+# Book settings
+title: Python for Geospatial Analysis
+author: Tomas Beuzen
+copyright: "2021" 
+logo: docs/logo.png
+
+repository:
+  url: https://github.com/TomasBeuzen/python-for-geospatial-analysis
+  path_to_book: ""
+  branch: main  # Which branch of the repository should be used when creating links
+  
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# HTML-specific settings
+html:
+  favicon                   : "docs/favicon.png"  # A path to a favicon image
+  navbar_number_sections    : false  # Add a number to each section in your left navbar
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_repository_button     : true  # Whether to add a link to your repository button
+  use_issues_button         : false  # Whether to add an "open an issue" button
+  extra_navbar              : <a href="https://www.tomasbeuzen.com/">Tomas Beuzen</a>  # Will be displayed underneath the left navbar.
+  extra_footer              : ""  # Will be displayed underneath the footer.
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : "https://www.tomasbeuzen.com/python-for-geospatial-analysis/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/

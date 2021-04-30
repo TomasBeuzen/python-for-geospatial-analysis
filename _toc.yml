@@ -1,0 +1,14 @@
+- file: README
+  numbered: false
+
+- part: Chapters
+  chapters:
+  - file: chapters/chapter1-basics
+  - file: chapters/chapter2-loops-functions
+  - file: chapters/chapter3-tests-classes
+  - file: chapters/chapter4-style-scripts-imports
+  - file: chapters/chapter5-numpy
+  - file: chapters/chapter6-numpy-addendum
+  - file: chapters/chapter7-pandas
+  - file: chapters/chapter8-wrangling-basics
+  - file: chapters/chapter9-wrangling-advanced
