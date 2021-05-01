@@ -5,7 +5,6 @@
 Welcome to Python for Geospatial Analysis! With this [website](https://www.tomasbeuzen.com/python-for-geospatial-mapping-modelling/) I aim to provide a crashcourse introduction to using Python to wrangle, plot, and model geospatial data. We'll be using libraries such as `geopandas`, `plotly`, `keplergl`, and `pykrige` to these ends.
 
 ```{image} docs/logo.png
-:alt: fishy
 :width: 250px
 :align: center
 ```
